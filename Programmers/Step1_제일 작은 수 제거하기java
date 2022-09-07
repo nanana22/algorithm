@@ -1,0 +1,39 @@
+class Solution {
+    public int[] solution(int[] arr) {
+        // test: 가장 작은수가 담길 변수
+        int test = arr[0];
+        
+        // 배열의 길이가 1일 경우
+        if(arr.length == 1){
+            int[] answer = {-1};
+            return answer;
+        }
+        // 배열의 길이가 1이 아닐 경우
+        else{
+            
+            //제일 작은 수 구하기
+            for(int i=0; i<arr.length; i++){
+                if(test > arr[i]){
+                    test=arr[i];
+                    System.out.println("가장 작은 수: " + test);
+                }
+            }
+            
+            // 차례대로 집어넣기
+            
+            // 비어있는 배열 생성
+            int[] answer = new int[arr.length-1];
+            // 이 배열의 인덱스 역할할 cnt
+            int cnt = 0;
+            for(int j = 0; j<arr.length; j++){
+                if(test == arr[j]){
+                    continue;
+                }
+                answer[cnt++]=arr[j];
+               
+            }
+            return answer;
+        }
+
+    }
+}
